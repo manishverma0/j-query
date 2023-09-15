@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>j query form event</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+
+
+
+</head>
+<body>
+
+    <div class="wrapper">
+        <div class="icon_video">
+            <video src="./icon.mp4" loop    id="video_typ"></video>
+        </div>
+    
+    
+    
+    <!-- Login Form start -->
+        <form id="login_form">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email">
+          
+
+            <select name="" id="change_event">
+                <option selected>show</option>
+                <option>hide</option>
+             
+            </select>
+
+       
+ 
+ 
+
+
+            <label for="Password">Password:</label>
+            <input type="password" id="passwords">
+            <div class="password_viewver">
+                <input type="checkbox" id="view_password">
+                <span>Show Password</span>
+            </div>
+            <button type="submit" id="sub">Login</button>
+            <div class="create_account_div">
+                <p id="create_account">Create a account</p>
+            </div>
+        </form>
+    <!-- Login Form end -->
+    
+    
+    
+    <!-- Signup Form start -->
+        <div id="signup_form">
+            <p >NOT Created go back to login!</p>
+            <div class="create_account_div">
+                <p id="login_account">login</p>
+            </div>
+        </div>
+    <!-- Signup Form end -->
+
+ 
+    
+    
+    
+    </div>
+    
+
+<script>
+ $(document).ready(function(){
+// Focus And Blur
+    $("input").on({
+        focus:function(){
+            $(this).css({"background-color":"#325859","outline":"1px solid black","color":"white"})
+        },
+        blur:function(){
+            $(this).css({"background-color":"cadetblue","outline":"0px solid black"})
+        }
+    })
+// Submit Event
+$("form").submit(function(e){
+    e.preventDefault()
+
+    var emailPattern = /^[a-zA-Z0-4._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+
+   let email =  $("#email").val();
+
+   if(emailPattern.test(email)){
+    console.log("wellcome");
+   }else{
+    console.log("enter valid email");
+   }
+});
+
+ 
+// Change Event
+
+$("#change_event").change(function(){
+
+    let change_val = $(this).val();
+    console.log(change_val);
+
+ 
+})
+ 
+
+
+
+
+
+
+
+ });
+</script>
+
+ 
+<style>
+ #show{
+    display: none;
+
+ }
+#hide{
+    display: none;
+}
+</style>
+</body>
+</html>
+
+
+
+<!-- 
+form events
+
+focus()
+blur()
+change()
+submit()
+select() 
+
+-->

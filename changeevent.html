@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>change event</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+</head>
+<body>
+
+    <div class="wrapper">
+        <form>
+        <div>
+            <label for="name">Name:</label>
+            <input type="text">
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email">
+
+        </div>
+            
+        <div>
+            <label for="select">Country</label>
+            <select id="select">
+                <option selected>Select</option>
+                <option >IN</option>
+                <option  >USA</option>
+                <option  >UK</option>
+                <option  >PK</option>
+                <option  >CH</option>
+            </select>
+
+        </div>
+<div class="">
+
+    <label for="method">gender</label>
+    <label>male</label>
+    <input type="radio" value="male">
+
+    <label>female</label>
+    <input type="radio" value="female">
+  
+</div>
+
+<div class="contact_method">
+    <label>contact method</label>
+
+
+    <input type="checkbox" value="email">
+    <label>email</label>
+
+    <input type="checkbox" value="phon">
+    <label>phon</label>
+
+    <input type="checkbox" value="social media">
+    <label>social media</label>
+
+</div>
+
+
+<div class="comment">
+    <textarea></textarea>
+</div>
+
+
+<p id="result"></p>
+
+
+
+
+        </form>
+    </div>
+
+<script>
+$(document).ready(function(){
+
+// for Select and option ,, trigger imiediatly
+$("#select").change(function(){
+    value = $(this).val();
+    $("#result").html(value);
+
+    if(value == "Select"){
+        $("#result").html("Please Select city");
+    }
+});
+
+
+// for input box ==> trigger when element loos focus
+// same as input and textarea
+$("input").change(function(){
+    const value = $(this).val();
+    $("#result").html(value).clone();
+})
+
+
+// select event only work with input text select and textarea text select this event fired when we select text inside
+// textarea text and input field text
+$("input").select(function(){
+    alert("input field text selected")
+})
+$("textarea").select(function(){
+    alert("textarea text selected")
+})
+
+
+
+
+
+
+})
+</script>
+    
+</body>
+</html>

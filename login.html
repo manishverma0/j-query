@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="./style.css">
+  
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="icon_video">
+        <video src="./icon.mp4" loop    id="video_typ"></video>
+    </div>
+
+
+
+<!-- Login Form start -->
+    <form id="login_form">
+        <label for="email">E-mail:</label>
+        <input type="email" required>
+        <label for="Password">Password:</label>
+        <input type="password" id="passwords">
+        <div class="password_viewver">
+            <input type="checkbox" id="view_password">
+            <span>Show Password</span>
+        </div>
+        <button type="submit" id="sub">Login</button>
+        <div class="create_account_div">
+            <p id="create_account">Create a account</p>
+        </div>
+    </form>
+<!-- Login Form end -->
+
+
+
+<!-- Signup Form start -->
+    <div id="signup_form">
+        <p >NOT Created go back to login!</p>
+        <div class="create_account_div">
+            <p id="login_account">login</p>
+        </div>
+    </div>
+<!-- Signup Form end -->
+
+
+
+
+</div>
+
+<script>
+$(document).ready(function(){
+
+
+
+
+// When I Continue Typing then Play Video Icon ND WHEN I STOP THEN VIDEO wILL sTOP start
+    $("input").keypress(function(){
+        $("#video_typ").trigger('play');
+    })
+    $("input").keyup(function(){
+        $("#video_typ").trigger('pause');
+    })
+// When I Continue Typing then Play Video Icon ND WHEN I STOP THEN VIDEO wILL stop end
+
+
+
+
+// Keydown and keyup testing start
+$(document).keydown(function(event) {
+    if(event.key === "1"){
+
+        console.log("Key pressed: one");
+    }else{
+        console.log("no one")
+    }
+});
+$(document).keyup(function(event) {
+    // Keyup event handler
+    console.log("Key released: " + event.key);
+});
+// Keydown and keyup testing end
+
+    
+
+
+
+
+// form tabing login and signp start
+$("#create_account").click(function(){
+    $("#login_form").hide()
+    $("#signup_form").show()
+})
+
+$("#login_account").click(function(){
+    $("#login_form").show()
+    $("#signup_form").hide()
+})
+// form tabing login and signp end
+
+
+
+
+// Password Veiwer Code Start
+            $("#view_password").click(function(){
+
+                var show_passs = $("#passwords");
+                var buttoncheck = $("#view_password");
+
+                if(buttoncheck.prop("checked")){
+                    show_passs.attr("type","text");
+                }else{
+                    show_passs.attr("type","password");
+                }
+            })
+// Password Veiwer Code end
+
+
+
+// form Events Focus ANd Blur start
+        $("input").on({
+            focus:function(){
+                $(this).css({"background-color":"#174749", "color":"white","border":"none"})
+                  console.log("focus")
+            },
+            blur:function(){
+                $(this).css({"background-color":"cadetblue"})
+                 console.log("blur")
+            }
+        })
+// form Events Focus ANd Blur end
+
+// form Events submit start
+        $("form").submit(function(event){
+            event.preventDefault();
+            console.log("submitted");
+            alert("Successfully loged in!")
+        });
+// form Events submit end
+
+
+
+    });
+    </script>
+
+</body>
+</html>
