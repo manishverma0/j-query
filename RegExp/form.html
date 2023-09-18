@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Regex</title>
+</head>
+<body>
+
+    <p id="hint"> </p>
+
+    <form id="form">
+        <div>
+            <label for="email" id="email">Email:</label>
+            <input type="text"  >
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="text" min="4" max="4" id="password">
+            <span id="pserror"></span>
+        </div>
+  
+
+
+        <input type="submit" id="submit">
+    </form>
+
+    <script>
+        $(document).ready(function(){
+
+  // Create a regular expression using a regex literal
+var regex = /pattern/;
+
+// Example: Matching an email address pattern
+var emailRegex = /[a-z]/g;
+
+// Test if a string matches the regex
+var email =  $("#email").val();
+
+$("#password").keydown(function(){
+
+
+    if (emailRegex.test(email)) {
+      console.log("Valid email address");
+    } else {
+      console.log("Invalid email address");
+    }
+
+})
+
+ 
+
+
+
+            // Remove form Default Behaviour
+            $("#submit").submit(function(e){
+                e.preventDefault()
+            });
+
+
+
+
+
+        })
+    </script>
+    
+</body>
+</html>
