@@ -43,51 +43,20 @@
 </div>
     <script>
         $(document).ready(function(){
+ 
 
 
+// Email Validations
+
+        var emailPattern = /[a-zA-Z0-0]/g;
 
         
-
-
-
-
-
-
-
-
-
-            // var Regex = /^[A-Za-z]+( [A-Za-z0-5]*)?$/;
-
-        let Regex = /manish/;
-             
-        // String Search
-        str = "hello manish verma";
-        let res=  str.search(Regex);
-        console.log(res); // return -1 when method could not finde true result
-
-        // Replacement
-        olDsTRING = "hello manish verma";
-        let Replace_with_new_string =  olDsTRING.replace("manish","raj")
-        console.log(Replace_with_new_string)
-
-        // Regex Replacement
-        const originalString = "Apples are tasty. Oranges are tasty too.";
-        const newString = originalString.replace(/tasty/g, "delicious");
-        console.log(newString); // Outputs: "Apples are delicious. Oranges are delicious too."
-
-        // use a regular expresion to do a case-sensitive search for manish in a string
-        let cSText = "Hey I aM mANIsH vERma";
-        alert(cSText.search(/verma/i)) // return number jaha bbhi text he
-
-
-
+ 
 
         const emailValue =  $("#email").val(); 
         inputs =  $("#email");
         $("#email").keyup(function(){
-            
-
-            if(Regex.test($(this).val())){
+            if(emailPattern.test($(this).val())){
                 console.log("entered value is ok!")
                   inputs.css({"border": "1px solid green"})
             }else{
@@ -95,6 +64,38 @@
                 inputs.css({"border": "1px solid red"})
             }
         })
+
+
+        // Password Validations
+
+        var passwordPattern = /[^a-zs]/i;
+
+
+        let passwordValue = $("#password").val();
+
+        $("#password").keyup(function(){
+
+
+            if(passwordPattern.test($(this).val())){
+                console.log("matched")
+            }else{
+                console.log("not matched")
+            }
+
+
+ 
+        })
+
+
+
+
+
+
+
+
+
+
+
 
             
 // Remove Out Line on focus and blur
@@ -106,23 +107,10 @@
             $(this).css({"outline":"0px"})
 
         })
-
- 
- 
-
- 
-
-
-
-            // Remove form Default Behaviour
-            $("#submit").submit(function(e){
-                e.preventDefault()
-            });
-
-
-
-
-
+// Remove form Default Behaviour
+        $("#submit").submit(function(e){
+            e.preventDefault()
+        });
         })
     </script>
     

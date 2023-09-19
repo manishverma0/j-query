@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>modifiers</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+</head>
+<body>
+    
+
+    <script>
+
+        // modiers  is spcial charecter that are used for add and extend extra functionality to your pattern..
+        // Also Known as a flag and options..
+        // modifiers insure that how the pattern is applyed to he input text and can change things like case sensitivity multiline 
+            // matching.. AND MORE
+
+            // Note ==> agar hum /pattern/  <== iss trha ka pattern banate he without modifier to yeh sirf ek bar search krega and 
+                // use agar result mill jayega to yeh use print kr dega and aage check nhi krega isliye
+                //  hum global modifier use krte he vo globally search
+                // Search krta he or tab tak search krta he tabtak sbhi matches na mill jaye.. 
+
+        // regex support a varity of modifiers but ,, 3 most comman..  
+        // 1. ignore case ==> i
+        // 2. global matching/search ==> g
+        // 3. multline ==> m
+
+
+        // Simple Patterm   /pattern/    without modifiers
+            let simplePattern = /search/; //if we add global search return all search word but ignore that case not match..
+            let simplStr = "hello This Is a simple Search Result  that contain Three time search word search.."
+            let simplePatternResult = simplStr.match(simplePattern);
+
+            console.log(simplePatternResult);  //Return Only One array jo subse pehle Match me ata he uske bad stop ho jaata he or execution stop kr deta he...
+
+            // Return only one word that match first and stop execution..
+        
+
+        //1. ( i ) case-insensitive modifier
+
+        var ignorCasePattern = /Hello/gi;  // agar only global set krke rkhte he to sirf jo case match hoga vahi shoe hoga or nhi..,, 
+
+            let str = "hello Hello HeLLo";
+
+            let result = str.match(ignorCasePattern);
+            console.log(result)
+
+            // output ==> global Global global all global name word
+
+
+        //2. ( g ) global modifier 
+
+
+        var globalPattern = /global/g;
+
+        let globalString = "Global warming is a pressing issue that affects our planet's climate. In an increasingly interconnected world, addressing global challenges like poverty and inequality requires collaborative efforts. The United Nations plays a pivotal role in promoting global peace and cooperation among nations."
+
+
+        let globalResult = globalString.match(globalPattern);
+        console.log(globalResult);
+
+        // output ==>   global global glabal   but not add Global 
+        
+
+
+        // 3. ( m ) multiline modifier  
+
+            // perform multiline matching
+ 
+
+    
+
+
+            
+
+
+
+
+
+
+     
+        
+
+    </script>
+</body>
+</html>
