@@ -68,8 +68,8 @@
 
             // perform multiline matching
 
-            let multLinePattern = /hey/g;
-            let multilineString = "hey I Am Manish \nHey I Am Ajay \nHey I Am Raj";
+            let multLinePattern = /hey/gm;
+            let multilineString = "hey I Am Manish \nHey I Am Ajay \nhey I Am Raj";
 
             let multilineStringResult = multilineString.match(multLinePattern)
             console.log(multilineStringResult)
