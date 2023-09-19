@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search And Replace</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+
+
+
+    
+<script>
+$(document).ready(function(){
+    // Simple word Search In a string with search method
+
+    let simpleStr = "Hello I am Manish Verma"; //Global String Var For Use All methods
+
+    
+    var simpleStrRes =  simpleStr.search("Verma");
+    console.log(simpleStrRes + " if you give diffrent case string then return result -1")
+
+    // Yeh Case sensitive hota he agar hame case metter nhi krta or search krna he t rgular expresion se condition lagegi
+
+    // Simple Search With Regular expresions 
+    var regSearch = simpleStr.search(/manish/i)
+    console.log(regSearch + " return result no metter case sensitive or not");
+
+
+    // Replacement Method
+
+    // Simple Replacement with string
+
+    let replacesimple = simpleStr.replace("Manish","Raj");
+    console.log(replacesimple + "replace manish with raj simple replacement with string !but not take wrong case word")
+
+
+    // Replacement Mthod With Regex
+
+    let regexReplacement = simpleStr.replace(/manish/i,"ajay");
+    console.log(regexReplacement + " regex replacement and that is case insensitive")
+    
+
+
+})
+</script>
+</body>
+</html>

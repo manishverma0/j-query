@@ -5,15 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <title>Regex</title>
+    <style>
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
 </head>
 <body>
+    <div class="Wrapper">
 
-    <p id="hint"> </p>
+
+
+  
 
     <form id="form">
         <div>
-            <label for="email" id="email">Email:</label>
-            <input type="text"  >
+            <label for="email">Email:</label>
+            <input type="email" id="email">
         </div>
         <div>
             <label for="password">Password:</label>
@@ -26,28 +37,78 @@
         <input type="submit" id="submit">
     </form>
 
+
+    <p id="hint"> </p>
+
+</div>
     <script>
         $(document).ready(function(){
 
-  // Create a regular expression using a regex literal
-var regex = /pattern/;
-
-// Example: Matching an email address pattern
-var emailRegex = /[a-z]/g;
-
-// Test if a string matches the regex
-var email =  $("#email").val();
-
-$("#password").keydown(function(){
 
 
-    if (emailRegex.test(email)) {
-      console.log("Valid email address");
-    } else {
-      console.log("Invalid email address");
-    }
+        
 
-})
+
+
+
+
+
+
+
+
+            // var Regex = /^[A-Za-z]+( [A-Za-z0-5]*)?$/;
+
+        let Regex = /manish/;
+             
+        // String Search
+        str = "hello manish verma";
+        let res=  str.search(Regex);
+        console.log(res); // return -1 when method could not finde true result
+
+        // Replacement
+        olDsTRING = "hello manish verma";
+        let Replace_with_new_string =  olDsTRING.replace("manish","raj")
+        console.log(Replace_with_new_string)
+
+        // Regex Replacement
+        const originalString = "Apples are tasty. Oranges are tasty too.";
+        const newString = originalString.replace(/tasty/g, "delicious");
+        console.log(newString); // Outputs: "Apples are delicious. Oranges are delicious too."
+
+        // use a regular expresion to do a case-sensitive search for manish in a string
+        let cSText = "Hey I aM mANIsH vERma";
+        alert(cSText.search(/verma/i)) // return number jaha bbhi text he
+
+
+
+
+        const emailValue =  $("#email").val(); 
+        inputs =  $("#email");
+        $("#email").keyup(function(){
+            
+
+            if(Regex.test($(this).val())){
+                console.log("entered value is ok!")
+                  inputs.css({"border": "1px solid green"})
+            }else{
+                console.log("entered value is wrong!")
+                inputs.css({"border": "1px solid red"})
+            }
+        })
+
+            
+// Remove Out Line on focus and blur
+        $("input").focus(function(){
+            $(this).css({"outline":"0px"})
+        })
+
+        $("input").blur(function(){
+            $(this).css({"outline":"0px"})
+
+        })
+
+ 
+ 
 
  
 
@@ -67,3 +128,9 @@ $("#password").keydown(function(){
     
 </body>
 </html>
+
+
+<!-- if($("#email").val() == ""){
+    console.log("enter something")
+     $(this).css({"border": "5px solid red"})
+} -->
