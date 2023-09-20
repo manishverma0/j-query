@@ -25,6 +25,7 @@
         // 1. ignore case ==> i
         // 2. global matching/search ==> g
         // 3. multline ==> m
+        // 4. single line ==> s ("used to change the behaviour of (.) dot")
 
 
         // Simple Patterm   /pattern/    without modifiers
@@ -73,6 +74,28 @@
 
             let multilineStringResult = multilineString.match(multLinePattern)
             console.log(multilineStringResult)
+
+
+        // 4. ( s ) single line (change the behaviour of dot(.)),, yeh function puri string ko single line samjhta he ,,
+            // Jab Hume kisi String ya words ke bich me koi extra word bhi add krna ho tab (.) ka use krte he,
+
+
+        // Return Answr With New Line Text with (s) modifier
+        let singlePattern = /line1.*line3/gims
+
+        let singleLineSTRing = "Line1\n extra added text for .* \n Line3"
+
+        let singllineResuult = singleLineSTRing.match(singlePattern);
+
+        console.log(singllineResuult+ " ==> with s modifire");
+
+        // return nothing without (s) but you have only single line text then you can escape (s)
+
+        let patternWithoutS = /manish.....verma/gim;
+        let withoutSstring = "manishextraverma";
+
+        let withoutSResult = withoutSstring.match(patternWithoutS);
+        console.log(withoutSResult);
 
 
  
