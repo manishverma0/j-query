@@ -24,8 +24,10 @@
         // regex support a varity of modifiers but ,, 3 most comman..  
         // 1. ignore case ==> i
         // 2. global matching/search ==> g
-        // 3. multline ==> m
+        // 3. multline ==> m  (affect ^ and $)
         // 4. single line ==> s ("used to change the behaviour of (.) dot")
+        // 5. unicode ==> allow to include unicode in regex
+        // 6. Sticky ==> used to insure that first latter are mathcing or not with pattern
 
 
         // Simple Patterm   /pattern/    without modifiers
@@ -67,9 +69,10 @@
         
 
 
-        // 3. ( m ) multiline modifier   (affect anchors ^ and $)  
+        // 3. ( m ) multiline modifier   (affect anchors ^ and $) 
+                //Position Anchors   
                 // 1.^ match ke liye line kaha se start krni he  2.$ matching kaha per khatam krni he,
-                
+
             console.log("Multiline modifire (m)")
 
             // perform multiline matching simple without insure ki kaha se start ho rhi he and end kaha per khatam ho ri 
@@ -80,14 +83,13 @@
             console.log(multilineStringResult)
 
 
-            // 
+            // with ^ and $
+                console.log("with ^ and $")
 
-
-
-
-
-
-
+            let multilinePattern = /^line1(ok)end$/gmi;
+            let multilinePatternString = "line1okend\nline1okend\nline1okend";
+            let multilinecarrectDollarReuslt = multilinePatternString.match(multilinePattern);
+            console.log(multilinecarrectDollarReuslt);
 
 
         // 4. ( s ) single line (change the behaviour of dot(.)),, yeh function puri string ko single line samjhta he ,,
@@ -115,19 +117,34 @@
 
  
 
+        // Sticky
+        // Sticky modifiers
+            // yeh modifiers strings ke first word ko match krne ke liye use me ata he
+
+        let stickyPattern = /mr/ygi;  //agar string ke aage manish hoga to return kr dega result otherwise null
+
+        let stickyString = "mr manish";
+        let checkSticky  = stickyString.match(stickyPattern);
+        console.log(checkSticky);
+
+        
+        // unicode  (u)  yeh modifier unicodes ki matching allow krwata he ,, 
+
+        console.log("unicode")
+
+        let unicodePatten = /\ud83d/;   //check unicode exist in string or not and also unicode is available strting of string
+        let unicodeString = "👍 hey i am manish ";
+
+        let seeunicodeResult = unicodeString.match(unicodePatten);
+
+        console.log(seeunicodeResult)
+
+        
+
     
 
 
-            
-
-
-
-
-
-
-     
         
-
     </script>
 </body>
 </html>
