@@ -39,6 +39,7 @@
         
 
         //1. ( i ) case-insensitive modifier
+            console.log("ignore Case modifier")
 
         var ignorCasePattern = /Hello/gi;  // agar only global set krke rkhte he to sirf jo case match hoga vahi shoe hoga or nhi..,, 
 
@@ -51,6 +52,7 @@
 
 
         //2. ( g ) global modifier 
+            console.log("Global Modifier")
 
 
         var globalPattern = /global/g;
@@ -65,10 +67,12 @@
         
 
 
-        // 3. ( m ) multiline modifier  
+        // 3. ( m ) multiline modifier   (affect anchors ^ and $)  
+                // 1.^ match ke liye line kaha se start krni he  2.$ matching kaha per khatam krni he,
+                
+            console.log("Multiline modifire (m)")
 
-            // perform multiline matching
-
+            // perform multiline matching simple without insure ki kaha se start ho rhi he and end kaha per khatam ho ri 
             let multLinePattern = /hey/gm;
             let multilineString = "hey I Am Manish \nHey I Am Ajay \nhey I Am Raj\nHey I am virat";
 
@@ -76,8 +80,19 @@
             console.log(multilineStringResult)
 
 
+            // 
+
+
+
+
+
+
+
+
+
         // 4. ( s ) single line (change the behaviour of dot(.)),, yeh function puri string ko single line samjhta he ,,
             // Jab Hume kisi String ya words ke bich me koi extra word bhi add krna ho tab (.) ka use krte he,
+            console.log("Single Line(n)")
 
 
         // Return Answr With New Line Text with (s) modifier
