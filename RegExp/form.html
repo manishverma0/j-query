@@ -11,6 +11,21 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: wheat;
+        }
+        div {
+            display: grid;
+            gap: 5PX;
+        }
+        form#formValid {
+            BACKGROUND: BEIGE;
+            PADDING: 20px;
+            font-size: 10px;
+            border-radius: 13px;
+        }
+        span{
+            padding: 2px 0;
+            color: red;
         }
     </style>
 </head>
@@ -21,100 +36,107 @@
 
   
 
-    <form id="form">
+    <form id="formValid">
+        <div>
+            <label for="fname">Name:</label>
+            <input type="text" id="name">
+            <span id="nameError"></span>
+        </div>
         <div>
             <label for="email">Email:</label>
             <input type="email" id="email">
+            <span id="emailError"></span>
         </div>
         <div>
             <label for="password">Password:</label>
             <input type="text" min="4" max="4" id="password">
+            <span id="passwordError"></span>
             <span id="pserror"></span>
         </div>
-  
+        <div>
+            <label for="password">Confirm Password:</label>
+            <input type="text" min="4" max="4" id="cpassword">
+            <span id="cpasswordError"></span>
+            <span id="pserror"></span>
+        </div>
+        <div>
+            <label for="Number">Number:</label>
+            <input type="text" id="number">
+            <span id="numberError"></span>
+        </div>
 
-
-        <input type="submit" id="submit">
+        <input type="submit" id="submit"  >
     </form>
 
 
-    <p id="hint"> </p>
+    
 
 </div>
-    <script>
-        $(document).ready(function(){
+<script>
+
+$(document).ready(function(){ 
+
+   
+    
+    
+    
+    $("#formValid").submit(function(e){
+        // Name Validate
+        let namePattern = /^[A-Z][a-z]$/
+        let getNameData = $("#name").val();
+
+        if(namePattern.test(getNameData)){
+            $("#nameError").html("")
+        }else{
+            $("#nameError").html("invalid Name")
+        }
+
+        // PassWord Validate
+
+        let passwordPattern = /[a-z]{1}[A-Z]{1}[0-9][@#$%&]{1}}/g;
+        let getPassWordData = $("$passwordError").val();
+
+        if(passwordPattern.test(getPassWordData)){
+            $("$passwordError").html("");
+        }else{
+            $("#passwordError").html("**invalid password");
+        }
+
+
+
+
+
+
+        // number Validate
+        let NumberPattern = /^[789][0-9]{9}$/
+        let numberData = $("#number").val();
+
+        if(NumberPattern.test(numberData)){
+             $("#numberError").html("")
+        }else{
+            $("#numberError").html("**invalid number")
+        }
+
+
+
  
-
-
-// Email Validations
-
-        var emailPattern = /[a-zA-Z0-0]/g;
-
+         
+       
+        e.preventDefault()
+        return;
+    })
         
- 
-
-        const emailValue =  $("#email").val(); 
-        inputs =  $("#email");
-        $("#email").keyup(function(){
-            if(emailPattern.test($(this).val())){
-                console.log("entered value is ok!")
-                  inputs.css({"border": "1px solid green"})
-            }else{
-                console.log("entered value is wrong!")
-                inputs.css({"border": "1px solid red"})
-            }
-        })
-
-
-        // Password Validations
-
-        var passwordPattern = /[^a-zs]/i;
-
-
-        let passwordValue = $("#password").val();
-
-        $("#password").keyup(function(){
-
-            if(passwordPattern.test($(this).val())){
-                console.log("matched")
-            }else{
-                console.log("not matched")
-            }
-        })
+        
+        
+        
 
 
 
-
-
-
-
-
-
-
-
-
-            
-// Remove Out Line on focus and blur
-        $("input").focus(function(){
-            $(this).css({"outline":"0px"})
-        })
-
-        $("input").blur(function(){
-            $(this).css({"outline":"0px"})
-
-        })
-// Remove form Default Behaviour
-        $("#submit").submit(function(e){
-            e.preventDefault()
-        });
-        })
-    </script>
+    });
+</script>
     
 </body>
 </html>
 
 
-<!-- if($("#email").val() == ""){
-    console.log("enter something")
-     $(this).css({"border": "5px solid red"})
-} -->
+ 
