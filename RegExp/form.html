@@ -81,6 +81,10 @@ $(document).ready(function(){
     
     
     $("#formValid").submit(function(e){
+        e.preventDefault()
+         
+
+
         // Name Validate
         let namePattern = /^[A-Z][a-z]$/
         let getNameData = $("#name").val();
@@ -122,8 +126,7 @@ $(document).ready(function(){
  
          
        
-        e.preventDefault()
-        return;
+     
     })
         
         
