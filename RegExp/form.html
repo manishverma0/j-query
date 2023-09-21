@@ -57,7 +57,7 @@
             <label for="password">Confirm Password:</label>
             <input type="text" min="4" max="4" id="cpassword">
             <span id="cpasswordError"></span>
-            <span id="pserror"></span>
+          
         </div>
         <div>
             <label for="Number">Number:</label>
@@ -82,29 +82,58 @@ $(document).ready(function(){
     
     $("#formValid").submit(function(e){
         e.preventDefault()
-         
-
 
         // Name Validate
-        let namePattern = /^[A-Z][a-z]$/
+        let namePattern = /^[A-Za-z/n]/ig
         let getNameData = $("#name").val();
 
         if(namePattern.test(getNameData)){
             $("#nameError").html("")
+            console.log("Valid Name")
         }else{
             $("#nameError").html("invalid Name")
+            console.log("Invalid Name")
         }
+
+
+
+        // Email Validations
+
+        let emailPattern = /^[a-zA-Z\.]{3,}/gi
+        let getEmailData = $("#email").val();
+
+        if(emailPattern.test(getEmailData)){
+            $("#emailError").html("")
+        }else{
+            $("#emailError").html("**invalid Email")
+        }
+
+
 
         // PassWord Validate
 
-        let passwordPattern = /[a-z]{1}[A-Z]{1}[0-9][@#$%&]{1}}/g;
-        let getPassWordData = $("$passwordError").val();
+        let passwordPattern = /[a-zA-Z0-9\.][!@#$%^&*]/gi;
+        let getPassWordData = $("#password").val();
 
         if(passwordPattern.test(getPassWordData)){
-            $("$passwordError").html("");
+            $("#passwordError").html("");
         }else{
             $("#passwordError").html("**invalid password");
         }
+
+        // PASSWORD mATCHING
+
+        let getPWMatchingData = $("#cpassword").val();
+
+        if(getPWMatchingData === getPassWordData){
+            $("#cpasswordError").html("");
+        }else{
+            $("#cpasswordError").html("**Password Not Matched!")
+        }
+
+
+
+    
 
 
 
