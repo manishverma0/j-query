@@ -10,7 +10,58 @@
 
 
     
+    
     <script>
+        $(document).ready(function(){
+
+
+
+// Simple Capturing and extracting
+
+            // Create Simple Group
+            let pattern = /(\d{4})-(\d{2})-(\d{2})/g
+
+            let string =  "2023-10-10"
+            // compare value with pattern
+            let result =  string.match(pattern)
+
+            // if string macthes with pattern then extracting some values from string.....
+            if(result){
+                let year = result[0];
+                let month = result[1];
+                let day = result[2];
+               
+                console.log(year)
+                console.log(month)
+                console.log(day)
+            }else{
+                
+                console.log("Enter Valid String")
+            }
+    
+            console.log("End capturing")
+
+// Non Capturing Groups
+
+        let patternNonCp = /(\d{2})-(\d{3})/gi
+        let ncgString  = "11-190"
+
+        let checkResult = ncgString.match(patternNonCp);
+
+ 
+
+        if(checkResult){
+             var grp1 = checkResult[0]
+             var grp2 = checkResult[1]
+             console.log(grp1)
+             console.log(grp2)
+     
+        }else{
+            console.log("not matched")
+        }
+
+
+    })
 
     </script>
 </body>
