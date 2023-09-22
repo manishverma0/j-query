@@ -99,7 +99,7 @@ $(document).ready(function(){
 
         // Email Validations
 
-        let emailPattern = /^[a-zA-Z\.]{3,}/gi
+        let emailPattern = /^[a-zA-Z0-9]{1,8}/gi
         let getEmailData = $("#email").val();
 
         if(emailPattern.test(getEmailData)){

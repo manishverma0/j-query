@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantifiers</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <form id="form">
+         <input type="text" id="name">
+        <input type="submit" id="submit">
+        <span id="screen"></span>
+    </form>
+    
+<script>
+$(document).ready(function(){
+
+
+    $("#form").submit(function(e){
+
+        // let pattern = /a*/g;  // matches 0 or more 
+        // let pattern = /a+/g;  // matches 1 or more 
+        // let pattern = /a?/g;  // matches 0 or 1 
+
+
+
+        // let pattern = /a{2}/g;  // matches exactly 2 aa aa
+        // let pattern = /a{2,}/g;  // matches atleast 2 or more
+        // let pattern = /a{2,5}/g;  // matches between 2 or 5     aa, aaa aaaa aaaaa <== match only
+       
+
+
+
+        let dataInput = $("#name").val();
+
+        console.log(dataInput)
+
+        if(pattern.test(dataInput)){
+            alert("matches")
+            console.log(pattern)
+   
+        }else{
+            alert("unmatch")
+            return false;
+        }
+
+       
+        $("#screen").html("submitted")
+        e.preventDefault()
+    })
+})
+</script>
+</body>
+</html>
+
+
+<!-- 
+
+1. * => matches  0 or more
+2. + ==> matches 1 or more 
+3. ? ==> matches 0 or one
+4. {n} ==> matches exactly n 
+5. {n,} ==> matches atleast  n and more...
+6. {n,m} ==> only matches beetween n and m 
+
+
+
+
+ -->
