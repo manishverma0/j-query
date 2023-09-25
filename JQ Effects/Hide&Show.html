@@ -5,14 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
     <title>Hide &  Show</title>
+    <style>
+        .pannel {
+             display: none;
+        }
+    </style>
 </head>
 <body>
     <P>Hide And Show in J-Query</P>
+
+
+    <div class="container">
+        <div class="button">tab 1</div>
+        <div class="pannel">
+                Inventore impedit provident eos dolor ad soluta laboriosam incidunt?
+        </div>
+        <div class="button">tab 1</div>
+        <div class="pannel">
+                Inventore impedit provident eos dolor ad soluta laboriosam incidunt?
+        </div>
+        <div class="button">tab 1</div>
+        <div class="pannel">
+                Inventore impedit provident eos dolor ad soluta laboriosam incidunt?
+        </div>
+        <div class="button">tab 1</div>
+        <div class="pannel">
+                Inventore impedit provident eos dolor ad soluta laboriosam incidunt?
+        </div>
+    </div>
     
 
-    
 
+
+    <script>
+        $(document).ready(function(){
+
+
+
+        let acc = $(".buton");
+        let i;
+
+        for(i = 0; i < acc.length ; i++){
+
+            acc[i].click(function(){
+                 $(this).addClass("active")
+            })
+
+        }
 
  
+
+           
+
+
+        })
+
+    </script>
 </body>
 </html>
