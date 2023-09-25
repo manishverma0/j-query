@@ -1,0 +1,53 @@
+body {
+    background: bisque;
+    overflow-x: hidden;
+}
+ 
+.validation_form{
+
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+form#login_form {
+    background: white;
+    border-radius: 10px;
+    padding: 10px 10px 20px;
+}
+
+ 
+.data_container {
+    display: flex;
+    flex-direction: column;
+}
+label {
+    font-size: 12px;
+    color: #000000ab;
+    padding: 10px 0;
+    font-family: sans-serif;
+}
+
+input#submit {
+    color: white;
+    background: black;
+    border: 0;
+    margin: 10px 0;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.data_container span {
+    color: red;
+    font-size: 10px;
+ 
+}
+
+input#showPassword {
+    padding: 0;
+    margin: 3px 3px 0 0px;
+}
+.viewPassword {
+    display: flex;
+    align-items: center;
+}

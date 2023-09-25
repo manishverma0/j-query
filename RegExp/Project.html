@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validations</title>
+    <link rel="stylesheet" type="text/css" href="./project.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+</head>
+<body>
+
+<div class="validation_form">
+    <form id="login_form">
+        <div class="data_container">
+            <label>E-mail</label>
+            <input type="text" id="emailField">
+            <span id="emailError"></span>
+            <span id="blankEmail"></span>
+
+        </div>
+        <div class="data_container">
+            <label>Password:</label>
+            <input type="password" id="passwordField">
+            <span id="passwordError"></span>
+            <span id="blankPassword"></span>
+          
+        </div>
+        <div class="viewPassword">
+            <input type="checkbox" id="showPassword">
+            <label>view password</label>
+        </div>
+
+
+        <input type="submit" id="submit">
+    </form>
+</div>
+
+    
+
+<script>
+$(document).ready(function(){
+
+// Password View
+    $("#showPassword").on("click",function(){
+        if($(this).prop("checked")){  
+            $("#passwordField").attr("type","text");
+        }else{
+            $("#passwordField").attr("type","password");
+        }
+    });
+
+
+
+// form Submiting Errors
+    $("#login_form").submit(function(e){
+
+
+        // Email Validation
+        let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/giu;
+        let emailData = $("#emailField").val();
+        let emailError = $("#emailError");
+        let blankEmail = $("#blankEmail");
+        // If Email Field Is blank
+        if (emailData === "") {
+          blankEmail.text("**Please fill in this field!");
+          emailError.text(""); // Clear any previous error message
+          return false;
+        } else {
+          blankEmail.text("");
+        }
+        // Pattern Testing
+        if (emailPattern.test(emailData)) {
+          emailError.text("");
+        } else {
+          emailError.text("**Please Enter Valid Email");
+        }
+
+
+
+
+
+
+
+
+
+        // Password Validation
+        let passwordData = $("#passwordField").val();
+        let passwordError = $("#passwordError");
+        let blankPassword  = $("#blankPassword");
+        let passwordLength  = $("#passwordField").val();
+        let maxLength  = 8;
+
+        // patterns 
+  
+
+// Weak Password Pattern
+var weakPasswordPattern = /^[a-zA-Z0-9._-]/;
+
+// Strong Password Pattern
+var strongPasswordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!])(?!.*\s).{8,}$/;
+
+
+
+
+
+if (strongPasswordPattern.test(passwordData)) {
+       passwordError.html("Strong password");
+      return false;
+    } else if (weakPasswordPattern.test(passwordData)) {
+       passwordError.html("Weak password");
+       blankPassword.html("")
+      return false;
+    } 
+else {
+    passwordError.html("Invalid password");
+}
+
+
+
+ 
+
+
+// if password field is blank
+
+        if(passwordData === ""){
+            blankPassword.html("**Please fill in this field!");
+            passwordError.html("");
+            return false;
+        }else{
+            blankPassword.html("");
+        }
+
+
+        
+        console.log("Submitted")
+        e.preventDefault()
+    });
+
+});
+</script>
+</body>
+</html>

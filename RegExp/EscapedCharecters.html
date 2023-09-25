@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+    <title>Escaped Charecters</title>
+</head>
+<body>
+
+
+<script>
+$(document).ready(function(){
+
+    // used to when you need to match  spacial metacharecters that have a special meangs  and  matched  as a literals..
+
+    let pattern = /(\.)+(.*)(\!)+(.*)(\@)(.*)+/
+
+    let strig = "!@#$.";
+
+    if(pattern.test(strig)){
+        console.log("Found")
+    }else{
+        console.log("Not fOUND")
+    }
+
+
+
+
+})
+</script>
+</body>
+</html>
