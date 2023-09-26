@@ -8,57 +8,58 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
 </head>
 <body>
+    <div class="Wrapper">
+        <div class="image">
+            <img src="./login.jpg">
+        </div>
+        <div class="validation_form">
+            <form id="login_form">
+                <div class="data_container">
+                    <label>Name</label>
+                    <input type="text" id="NameField">
+                    <span id="NameError"></span>
+                </div>
+                <div class="data_container">
+                    <label>E-mail</label>
+                    <input type="text" id="emailField">
+                    <span id="emailError"></span>
+                    <span id="blankEmail"></span>
+        
+                </div>
+                <div class="data_container">
+                    <label>Password:</label>
+                    <input type="password" id="passwordField">
+                    <span id="passwordError"></span>
+                 
+                  
+                </div>
+                <div class="viewPassword">
+                    <input type="checkbox" id="showPassword">
+                    <label>view password</label>
+                </div>
+        
+        
+                <input type="submit" id="submit">
+            </form>
+        </div>
+    </div>
+ 
 
-    <script>
-        $(document).ready(function(){
+
+    
+
+<script>
+$(document).ready(function(){
 
 
-            let pattern = /^[a-zA-Z\s]*$/g;
-
+    // Name Field Regex
+    let pattern = /^[a-zA-Z\s]*$/g;
             $("#NameField").on("input", function(e){
                 let Value = $(this).val();
                 if(!pattern.test(Value)){  
                     $(this).val(Value.replace(/[^a-zA-Z\s]*$/g, ""));
                 }    
             })
-        });
-    </script>
-
-<div class="validation_form">
-    <form id="login_form">
-        <div class="data_container">
-            <label>Name</label>
-            <input type="text" id="NameField">
-            <span id="NameError"></span>
-        </div>
-        <div class="data_container">
-            <label>E-mail</label>
-            <input type="text" id="emailField">
-            <span id="emailError"></span>
-            <span id="blankEmail"></span>
-
-        </div>
-        <div class="data_container">
-            <label>Password:</label>
-            <input type="password" id="passwordField">
-            <span id="passwordError"></span>
-         
-          
-        </div>
-        <div class="viewPassword">
-            <input type="checkbox" id="showPassword">
-            <label>view password</label>
-        </div>
-
-
-        <input type="submit" id="submit">
-    </form>
-</div>
-
-    
-
-<script>
-$(document).ready(function(){
 
  
     
@@ -151,7 +152,8 @@ if (passwordData.length === 0) {
     return false;
 } else if (strongPasswordPattern.test(passwordData)) {
     passwordError.html("Strong password");
-    return true;
+    return  false;
+    alert("Ready For Submit")
 } else if (weakPasswordPattern.test(passwordData)) {
     passwordError.html("Weak password , include one uppercase , one lowercase 1 special symbol");
     return false;
