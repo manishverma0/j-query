@@ -9,8 +9,28 @@
 </head>
 <body>
 
+    <script>
+        $(document).ready(function(){
+
+
+            let pattern = /^[a-zA-Z\s]*$/g;
+
+            $("#NameField").on("input", function(e){
+                let Value = $(this).val();
+                if(!pattern.test(Value)){  
+                    $(this).val(Value.replace(/[^a-zA-Z\s]*$/g, ""));
+                }    
+            })
+        });
+    </script>
+
 <div class="validation_form">
     <form id="login_form">
+        <div class="data_container">
+            <label>Name</label>
+            <input type="text" id="NameField">
+            <span id="NameError"></span>
+        </div>
         <div class="data_container">
             <label>E-mail</label>
             <input type="text" id="emailField">
@@ -40,6 +60,9 @@
 <script>
 $(document).ready(function(){
 
+ 
+    
+
 // Password View
     $("#showPassword").on("click",function(){
         if($(this).prop("checked")){  
@@ -53,6 +76,15 @@ $(document).ready(function(){
 
 // form Submiting Errors
     $("#login_form").submit(function(e){
+
+
+        // Name field is blank 
+        let NameData = $("#NameField").val();
+        if(NameData === ""){
+            $("#NameError").html("**Name Field Cannot be blank!")
+        }else{
+            $("#NameError").html("")
+        }
 
 
         // Email Validation
