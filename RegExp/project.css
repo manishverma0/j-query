@@ -1,14 +1,15 @@
 body {
     background: bisque;
-    overflow-x: hidden;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
 }
  
+ 
 .validation_form{
-
-    display: grid;
-    place-items: center;
-    height: 100vh;
-    margin: 0;
+ 
+    max-width: 35%;
 }
 
 form#login_form {
@@ -36,6 +37,7 @@ input#submit {
     margin: 10px 0;
     padding: 5px 10px;
     border-radius: 5px;
+    cursor: pointer;
 }
 .data_container span {
     color: red;

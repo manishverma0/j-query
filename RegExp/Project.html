@@ -22,7 +22,7 @@
             <label>Password:</label>
             <input type="password" id="passwordField">
             <span id="passwordError"></span>
-            <span id="blankPassword"></span>
+         
           
         </div>
         <div class="viewPassword">
@@ -71,6 +71,7 @@ $(document).ready(function(){
         // Pattern Testing
         if (emailPattern.test(emailData)) {
           emailError.text("");
+           
         } else {
           emailError.text("**Please Enter Valid Email");
         }
@@ -86,9 +87,10 @@ $(document).ready(function(){
         // Password Validation
         let passwordData = $("#passwordField").val();
         let passwordError = $("#passwordError");
-        let blankPassword  = $("#blankPassword");
+    
         let passwordLength  = $("#passwordField").val();
         let maxLength  = 8;
+        let minLength = 4;
 
         // patterns 
   
@@ -97,41 +99,40 @@ $(document).ready(function(){
 var weakPasswordPattern = /^[a-zA-Z0-9._-]/;
 
 // Strong Password Pattern
-var strongPasswordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!])(?!.*\s).{8,}$/;
+// var strongPasswordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=!])(?!.*\s).{4,8}$/;
+var strongPasswordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#%^&*()_+-=])(?!.*[\s]).{4,8}$/;
 
 
 
 
 
-if (strongPasswordPattern.test(passwordData)) {
-       passwordError.html("Strong password");
-      return false;
-    } else if (weakPasswordPattern.test(passwordData)) {
-       passwordError.html("Weak password");
-       blankPassword.html("")
-      return false;
-    } 
-else {
-    passwordError.html("Invalid password");
+
+ 
+if (passwordData.length === 0) {
+    passwordError.html("**Please fill in this field!");
+    return false;
+} else if (passwordData.length < minLength) {
+    passwordError.html("Password is too short. Minimum length is " + minLength + " characters.");
+    return false;
+} else if (passwordData.length > maxLength) {
+    passwordError.html("Password is too long. Maximum length is " + maxLength + " characters.");
+    return false;
+} else if (strongPasswordPattern.test(passwordData)) {
+    passwordError.html("Strong password");
+    return true;
+} else if (weakPasswordPattern.test(passwordData)) {
+    passwordError.html("Weak password , include one uppercase , one lowercase 1 special symbol");
+    return false;
+} else {
+    passwordError.html("Invalid password format.");
+    return false;
 }
-
-
 
  
 
 
 // if password field is blank
-
-        if(passwordData === ""){
-            blankPassword.html("**Please fill in this field!");
-            passwordError.html("");
-            return false;
-        }else{
-            blankPassword.html("");
-        }
-
-
-        
+ 
         console.log("Submitted")
         e.preventDefault()
     });
