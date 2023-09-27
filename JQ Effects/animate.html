@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animate</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+    <link rel="stylesheet" type="text/css" href="./css.css">
+    <style>
+        h2{
+            position: relative;
+            background-color: cornflowerblue;
+            color: white;
+           height: 100px;
+            max-width: 40%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="btn">Animate</button>
+        <button id="Predefined">predefined function toggle</button>
+
+        <h2>Animations Heading</h1>
+
+
+    </div>
+
+
+
+<script>
+$(document).ready(function(){
+
+    // Simple Animations with queue functionality
+    $("#btn").click(function(){ 
+        $("h2").animate({right:"-100px"} , 'slow')
+        $("h2").animate({fontSize:"30px"} , 'slow')
+    })
+
+    // Used Predefined Functions  we can use hide show and toggle
+    $("#Predefined").click(function(){
+        $("h2").animate({ height:"toggle"})
+    });
+})
+</script>
+</body>
+</html>
+
+<!-- animate() method is used to create custom animations.. -->
+
+<!-- 
+
+    Syntax::
+    $(selector).animate({styles}, speed, easing, callback);
+    example
+
+    $("#btn").click(function(){
+        $("h1").animate({left:"-100px" , fontSize:"100px"} , slow)
+    })
+
+
+    styles ==> it is a required parameter.. define the css properties to be animated..
+    speed ==> it is a optional speed parameter specify the duration of the effect it can take 3 value , slow , fast , milisecond
+    callback  ==> it is also optional , if you want to add function to be execute when after your animation are 100% completed..
+
+
+    we can use j-query predeined values..
+    hide show and toggle as a css value
+
+    $("#btn").click(function(){
+        $("h1").animate({height:"toggle"})    <== slide down and slide up ki trha work kregi yeh
+    })
+
+
+    we can use queue functionality when we created multiple animations in one element and that animation run one bye one
+
+    $("#btn").click(function(){
+        var value = $("h1");
+        value.animate({left:"-200px"});
+        value.animate({fontSize:"50px"});
+        value.animate({left:"0px"});
+        value.animate({fontSize:"20px"});
+
+        $
+    })
+
+
+    
+
+
+
+ -->
