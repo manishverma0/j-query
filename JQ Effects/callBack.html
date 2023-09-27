@@ -8,18 +8,35 @@
     <link rel="stylesheet" type="text/css" href="./css.css">
 </head>
 <body>
+    <div class="container">
+        <button id="cb">Callback</button>
+        <button id="ncb">No Callback</button>
+
+        <h3 id="action">heading</h3>
+    </div>
     
 
 
 <script>
 $(document).ready(function(){
 
+    // With callback Function   ,, run callback function after elment completely hide
+    $("#cb").click(function(){
+        $("#action").hide("slow",function(){alert("completely hidden!")})
+    })
+
+
+    // Without callback function ,, run function without complete animation ,
+
+    $("#ncb").click(function(){
+        $("#action").slideUp('slow');
+        alert("completely slide up")
+    })
 
 
 
 
 
-    
 })
 
 </script>
