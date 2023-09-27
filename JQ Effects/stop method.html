@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stop Method</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+    <link rel="stylesheet" type="text/css" href="./css.css">
+    <style>
+        p{
+            background-color: bisque;
+             height: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="text-align: left;">
+        
+            <button id="tab">view</button>
+            <button id="stop">stop</button>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                 Quis aperiam, nemo perferendis corporis qui distinctio nihil eveniet quas
+                  fugiat incidunt facilis cum facere enim harum ipsum, quasi natus voluptatum? Iste.</p>
+
+
+    </div>        
+
+<script>
+    $(document).ready(function(){
+
+        $("#tab").click(function(){
+            // $("p").animate({height:'toggle'},'slow')
+            $("p").slideToggle(5000)
+        })
+
+        // but i wanna stop animation when i click to stop button
+
+        $("#stop").click(function(){
+            $("p").stop()
+        })
+
+
+
+
+    })
+</script>
+
+    
+</body>
+</html>
