@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+    <link rel="stylesheet" type="text/css" href="./css.css">
+    <title>Hide &  Show</title>
+ 
+</head>
+<body>
+        <div class="container">
+                <!-- Basic -->
+        
+                <!-- Simple hide & show and toggle  -->
+                <button id="hide">hide element</button>
+                <button id="show">show element</button>
+                <button id="toggle">toggle elements</button>
+        
+                <!-- SLIDE effects -->
+                <button id="slideUP">Slide Up</button>
+                <button id="slideDown">Slide Down</button>
+                <button id="slideToggle">slide toggle</button>
+        
+                <!-- fade effects  -->
+                <button id="fadeIn">fadeIn</button>
+                <button id="fadeOut">fadeOut</button>
+                <button id="fadeToggle">fade toggle</button>
+                <button id="fadeTo">fadeTo</button>
+                
+                <di class="box">
+                        <h1>Heading</h1>
+
+                </di>
+
+        </div>
+
+
+<script>
+$(document).ready(function(){
+                
+// Hide And Show 
+$("#hide").click(function(){
+        $("h1").hide()
+});
+$("#show").click(function(){
+        $("h1").show();
+});
+$("#toggle").click(function(){
+        $("h1").toggle();
+});
+
+
+
+// slide 
+$("#slideUP").click(function(){
+        $("h1").slideUp()
+})
+$("#slideDown").click(function(){
+        $("h1").slideDown()
+})
+$("#slideToggle").click(function(){
+        $("h1").slideToggle();
+});
+
+
+// fade
+$("#fadeIn").click(function(){
+        $("h1").fadeIn();
+})
+$("#fadeOut").click(function(){
+        $("h1").fadeOut();
+})
+$("#fadeToggle").click(function(){
+        $("h1").fadeToggle();
+});
+$("#fadeTo").mouseover(function(){
+        $("h1").fadeTo("slow", 0.2)
+})
+
+
+
+
+
+});
+
+</script>
+</body>
+</html>
+
+<!-- Hide & Show in j- Query -->
+<!-- 
+
+Syntax::
+
+$(selecter).method("fast/slow/ms" , callBackfunction);
+$(selecter).hide(1000);
+$(selecter).show('slow');
+
+callback functions are optional perameters it will run when hide and show methods are completed ..
+
+
+In j query you can hide and show html elements with hide() and show() method..
+
+1.show() ==> used to show Html elements
+2.hide() ==> used to hide Html elements
+3.toggle()  ==> combination of hide and show method it is used to hide and show together.
+
+ -->
+<!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+ <!-- fade effects in j-Query -->
+ <!-- 
+        in J-Query you can fade elements in and out of visibility.
+        
+        fade events in jquery are 4 types
+
+        1.fadeIn() ==> used to visible  hidden element with fade effect.
+        2.fadeOut() ==> used to hidden visibale element with fade effect 
+        3.fadeToggle() ==> used to visible and hidden element with fade effect
+        4.fadeTo() ==>   used to specify fadding value ,,
+
+  -->
+<!-- mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm -->
+
+<!-- Slide Effects In J-Query -->
+
+<!-- 
+        the j-query side method is used to slide elements up and down..
+
+        1.slideUp()  ==> used to slide up an element
+        2.slideDown()==> used to slide down an element
+        3.slideToggle() ==> responsible for both slide down and slideup
+
+ -->
