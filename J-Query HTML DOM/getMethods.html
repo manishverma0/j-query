@@ -5,13 +5,158 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
     <title>Get Methods</title>
+    <style>
+ 
+    </style>
 </head>
 <body>
+<div class="container">
+<!-- used for get text and html markup. text() and html() -->
+    <p><em>hello<em/> how are you</p>
+
+    </br>
+<!-- used to get or set value of form fields . val()-->
+    <input type="text" id="input">
+
+    </br>
+
+<!-- attr() ==> it is used to get or set value of an attribute  ,, it is take two perameters if you want set value attr('type','value') -->
+        <a href="www.google.com" id="getattr">used to get or set attribute values</a>
+</br>
+        <a href="" id="setattr">used to get or set attribute values</a>
 
 
 
-    <script>
+        <!-- test -->
 
-    </script>
+        <img src="dummyAttr" id="img">
+
+
+        <!-- prop -->
+
+<br>
+        <input type="checkbox" id="check1">
+<br>
+
+        <input type="checkbox" id="check2">
+<br>
+
+
+<span>male</span>
+        <input type="radio" id="radio">
+<br>
+<span>female</span>
+        <input type="radio" id="radio1">
+
+
+<!-- css() -->
+
+<h2 id="css">hey how are you!</h2>
+
+
+</div>
+<script>
+$(document).ready(function(){
+    // text()  ==> is used to set and get text content of html element..
+
+    // get text content of html element....
+    let retriveText = $("p").text();
+    console.log(retriveText);
+    
+    // html() ==> is used to set or get html markup content of an element..
+    var retriveContentMarkup = $("p").html();
+    console.log(retriveContentMarkup);
+
+
+    // Val() ==>  it is used to set or get value of form fields. only like input select and text area.etc
+    // mostly value get krne ke liye hu use aata he..
+    
+
+    $("#input").keydown(function(){
+      var formValue = $(this).val();
+        console.log(formValue)
+    })
+
+// mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+
+    // attr() ==> it is used to set or get attributes values..
+
+    // get Attributes values
+    // attr('type/href/src/and all define all type of attribute jisko need ho')
+
+    $("#getattr").click((e)=>{
+        var retriveAttrValue = $("#getattr").attr('href');
+        console.log(retriveAttrValue + " attrValue Retrive")
+        alert(retriveAttrValue + " attrValue Retrive")
+        e.preventDefault();
+    })
+
+
+
+    // set attribute values
+    // attr("defineType","define value of attribute");
+
+    $("#setattr").click((e)=>{
+    var setAttr = $("#setattr").attr("href","manish");
+        console.log(setAttr + " set value")
+        e.preventDefault();
+    })
+
+    // get image attribute value
+
+    $("#img").mouseover(()=>{
+        var retriveAttrValueImg = $("#img").attr('src');
+        console.log(retriveAttrValueImg + "image attr value got")
+    })
+
+    // set attribute when mouseleave on image
+
+    $("#img").mouseleave(()=>{
+        var setimageAttr = $("#img").attr("src","https://codeskulptor-assets.commondatastorage.googleapis.com/assets_clock_background.png");
+
+        // now get again image attr value
+        var getAgainATTr = $("#img").attr("src");
+        alert(getAgainATTr + "New Image Value Getted")
+    })
+
+
+// mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+// 5. prop()  used to get or set properties of html element.. mostly checkbox and radio buttons and inut disable and readonly properties ko 
+// get or set krne ke use me ata he,, yeh boolean values per hi acutal me  kam krta he text based per nhii
+
+
+// check dynmiccally 
+
+$("#check1").prop("checked" , true) 
+$("#check2").prop("checked" , false) 
+
+// radio button
+
+$("#radio").prop("checked" , true) 
+$("#radio1").prop("checked" , false) 
+
+
+// mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+// 6.css();
+// used to get or set css properties of html elements for give style..
+// getting properties
+
+let checkCurrentFs = $("#css").css("font-size");
+console.log(checkCurrentFs + " check css nd get value")
+
+// setting properties value or manipulate css of html elements.
+let setCssValue = $("#css").css({"background-color":"green"})
+
+// you can set multiple css values if needed..
+
+
+
+
+
+
+
+
+})
+</script>
 </body>
 </html>
