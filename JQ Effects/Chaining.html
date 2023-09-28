@@ -9,17 +9,69 @@
 </head>
 <body>
 
+    <h1></h1>
+    <button id="btn">run</button>
+
     
 <script>
 $(document).ready(function(){
 
 
+setTimeout(function(){
+    $("body").css({"background-color":"pink"});
+},1000)
 
-
-
-
+   
+$("#btn").click(function(){
+    setTimeout(()=>{
+        $("h1").html("hello Start Chaining")
+        .css({"color":"red"})
+        .slideUp('slow')
+        .slideDown('slow')
+        .hide('slow').show('slow')
+        .fadeOut('slow')
+        .fadeIn('slow')
+        .fadeTo('slow',0.5);
+    },1000)
+})
 
 })
 </script>
 </body>
 </html>
+
+<!-- Important Things -->
+
+<!-- 
+
+  with j-query you can chain together actions/methods.
+  allow to add multiple methods on single line and single statement on same element..
+  in simple term chaining means append new method to previous method..
+  
+  
+  Example::
+
+  $("h1").css().slideUp().slideDown().hide().show().fadein().fadeOut()....add unlimited we could also have added more methods if needed..
+
+  first run one css then slideup element then slidedown then hide then show again then fade....etc
+
+  Tip :: when doing chainning then code become more long, so so we can use line breaks.. becouse j query is not strcit on syntax l
+
+
+like this..
+
+
+$("#btn").click(function(){
+    setTimeout(()=>{
+        $("h1").html("hello Start Chaining")
+        .css({"color":"red"})
+        .slideUp('slow')
+        .slideDown('slow')
+        .hide('slow').show('slow')
+        .fadeOut('slow')
+        .fadeIn('slow')
+        .fadeTo('slow',0.5);
+    },1000)
+})
+
+ -->
