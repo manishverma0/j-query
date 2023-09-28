@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setMethods</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+</head>
+<body>
+<!-- Simple Set  -->
+<!-- 
+    text()
+    html()
+    val()
+
+-->
+<button id="text">text()</button>
+<button id="html">html()</button>
+<button id="val">val()</button>
+<button id="attrChange">attr()</button>
+<button id="css">css()</button>
+<button id="prop">prop() checkbox</button>
+<button id="radio">prop() radio</button>
+
+<p id="simpleSet"></p>
+<input type="text" id="simpleVal">
+<br>
+<a href="www.google.com" id="attr">Change attr google to facebook</a>
+<br>
+
+<input type="checkbox" id="checkbox">
+<br>
+<input type="radio" id="radioInput">
+
+
+
+<script>
+$(document).ready(function(){
+// simple set
+// set text
+$("#text").click(()=>{
+    $("#simpleSet").text("this is a text content!")
+})
+
+// set html
+$("#html").click(()=>{
+    $("#simpleSet").html("this is a html content including child elements")  
+})
+
+// set value
+$("#val").click(()=>{
+    $("#simpleVal").val("set dynamic value on click")
+})
+
+// set attribute
+// the attr() method is also used to set multiple attribute at the same time
+
+$("#attrChange").click((e)=>{
+    $("#attr").attr("href","www.facebook.com",
+    "id","simpleTextattr"
+    );
+    // get value and push to p
+
+    e.preventDefault()
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Set Css
+$("#css").click(()=>{
+    $("body").css({"background-color":"lightgreen"})  // we could set multiple css if needed..
+})
+
+
+// prop set
+
+// CheckBox
+$("#prop").click(()=>{
+    $("#checkbox").prop("checked",true)
+})
+// radio
+$("#radio").click(()=>{
+    $("#radioInput").prop("checked",true)
+});
+
+// With CallBack Function
+
+// text() , html() , val() <== all j-query html methods come with callback function 
+// callback function take two arguments first index number and second jo represent old value..
+// hum sirf second perameters ko hi use krte he..jo old value ko represent krta he hum uske sath new value add kr skte he,,
+
+
+$("#text").dblclick(()=>{
+    $("#simpleSet").text(function(i,old){
+        return "old text:"+ old +"! ==> new Text Manish";
+    })
+})
+
+
+
+
+
+
+
+});
+</script>
+</body>
+</html>
+
+<!--
+
+we will use same method for set content and attributes.
+
+1. text() 
+2. html() 
+3. val()
+4. attr()
+5. css()
+6. prop()
+
+  -->
