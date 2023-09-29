@@ -18,9 +18,11 @@
 <button id="html">html()</button>
 <button id="val">val()</button>
 <button id="attrChange">attr()</button>
+<button id="attrcb">attr() callback</button>
 <button id="css">css()</button>
 <button id="prop">prop() checkbox</button>
 <button id="radio">prop() radio</button>
+<button id="cbText">txt callback</button>
 
 <p id="simpleSet"></p>
 <input type="text" id="simpleVal">
@@ -32,6 +34,11 @@
 <br>
 <input type="radio" id="radioInput">
 
+
+
+<!-- CallBck Functions 1 text -->
+
+<p id="txtCb">This is text callback function</p>
 
 
 <script>
@@ -56,17 +63,22 @@ $("#val").click(()=>{
 // the attr() method is also used to set multiple attribute at the same time
 
 $("#attrChange").click((e)=>{
-    $("#attr").attr("href","www.facebook.com",
-    "id","simpleTextattr"
-    );
+    $("#attr").attr("href","www.facebook.com");
     // get value and push to p
-
     e.preventDefault()
 })
 
 
+// Callback function for attribute
 
 
+$("#attrcb").click(function(){
+     
+   let getattr =   $("#attr").attr("href",function(i,oldAttr){
+
+    return oldAttr + "/newattrAdd.com/"
+   });
+})
 
 
 
@@ -103,6 +115,17 @@ $("#radio").click(()=>{
 $("#text").dblclick(()=>{
     $("#simpleSet").text(function(i,old){
         return "old text:"+ old +"! ==> new Text Manish";
+    })
+})
+
+
+
+// call back text 
+
+$("#cbText").click(function(){
+    $("#txtCb").html(function(i,oldValue){
+        return oldValue + " new value";
+
     })
 })
 
