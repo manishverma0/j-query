@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add Methods</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+    <style>
+        p#ab {
+    background: cadetblue;
+}
+    </style>
+</head>
+<body>
+
+    <h1>append and prepend method</h1>
+    <button id="append">append</button>
+    <button id="prepend">prepend</button>
+    <br>
+
+    <p id="ap">This is Simple Text a and p...</p>
+
+    
+
+
+    <h1>after and before</h1>
+    <button id="before">before</button>
+    <button id="after">after</button>
+    <br>
+
+
+    <p id="ab">This is Simple Text for after and before</p>
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function(){
+
+// append and prepend
+
+        // append ==> this is used to add content and html elements end of the selected elements..
+
+        $("#append").click(function(){
+            let el1 = "append multiple";
+            let el2 = "content elements"
+            let el3 = "end of the selected element";
+            $("#ap").append(el1 , el2 , el3);
+
+            $(this).attr("disabled","disabled")
+        });
+
+        // prepend ==> it is used for add content and htm elements begining of the selected elements..
+
+        $("#prepend").click(function(){
+            let el1 = "add "
+            let el2 = "append "
+            let el3 = "method "
+
+            $("#ap").prepend(el1 , el2 , el3)
+            $(this).attr(  "disabled","disabled")
+        });
+
+
+
+// after and before
+
+    // before 
+        // $("#before").click(function(){
+        //     $("#ab").before("hey i am simple before")
+        // })
+
+        // you can add multiple content and elements
+        $("#before").click(function(){
+            let el1 = "I am "
+            let el2 = " simple "
+            let el3 = " before"
+            $("#ab").before(el1, el2 , el3)
+        });
+    
+
+    // after
+
+    // $("#after").click(function(){
+    //     $("#ab").after("<p>This is a simple after text!</P>")
+    // });
+
+            $("#after").click(function(){
+            let el1 = "I am "
+            let el2 = " simple "
+            let el3 = " after"
+            $("#ab").after(el1 , el2 , el3)
+        });
+
+
+
+
+
+        
+
+
+
+    })
+</script>
+</body>
+</html>
+
+<!-- 
+    when you want to add new content or element around existig elements  ,, you can use 4 j query methods
+    
+
+    1.append() ==> used to add content and element end of the exixsting elements.
+    2.prepend() ==>used to add content and element begining of the existing elements.
+
+
+    3.after() used to add conntent after the selected or existing elements...
+    4.before() used to add content before the selected or existing elements...
+
+
+
+
+
+
+ -->
