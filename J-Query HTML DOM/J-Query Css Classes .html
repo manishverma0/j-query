@@ -5,14 +5,98 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
     <title>Css Classes function add remove and get or set css... classes</title>
+    <style>
+        .simpleAdded{
+            background-color: cadetblue;
+        }
+        .addMultiple{
+            font-size: 30px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
 </head>
 <body>
     
-
+    <p>Hey This is Simple Text!</p>
+    <p id="2">Hey This is Simple Text!</p>
+    <p id="3">Hey This is Simple Text!</p>
+    <button id="addclass">Add Class</button>
+    <button id="removeClass">Remove Class</button>
+    <button id="toggleClass">Toggle Class</button>
+    <button id="getcss">get Css</button>
+    <button id="setcss">set Css</button>
     <script>
         $(document).ready(function(){
+
+            // AddClass and select multiple elements add add multiple classes
+            $("#addclass").click(function(){
+                $("#3,#2").addClass("simpleAdded addMultiple")
+            })
+
+
+            // Remove class ==> you can remove existing classes from  elements.
+
+            $("#removeClass").click(function(){
+                $("#3, #2").removeClass("simpleAdded addMultiple")
+            });
+
+
+            // ToggleClass ==> jab apko same ek click per class add ho jaye and dusre per remove ho jaye ya add and reove 
+            //                  fuunctionality ko same button per lagaana ho tab iska use krte he,, 
+                                // addclass and remove class ka combinations he yeh 
+
+            $("#toggleClass").click(function(){
+                $("#2 , #3").toggleClass("simpleAdded addMultiple")
+            });
+
+
+
+            // css()  ==> this method is used to set css properties to elements
+
+            // get css properties 
+            $("#getcss").click(function(){
+                let storeVal = $("#getcss").css("font-size");
+                alert("fontSize " + storeVal)
+            });
+
+
+
+
+            // set css
+
+            $("#setcss").click(function(){
+                $("body").css("background-color","pink")
+                $(this).css({"background-color":"black","color":"white"})
+                $("p").css("color","white")
+            })
+
+
+
+
+
+
+
+
+
+
+
+
 
         })
     </script>
 </body>
 </html>
+<!-- j-query classes methods -->
+
+
+<!-- 
+
+    1.addClass()
+    2.removeClass()
+    3.toggleClass()
+    4.css()
+
+
+
+
+ -->
