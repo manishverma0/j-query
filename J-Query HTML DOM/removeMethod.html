@@ -5,18 +5,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
     <title>Remove methods</title>
+    <style>
+        #el{
+            height: 200px;
+            width: 300px;
+            align-items: center;
+            color: white;
+            padding: 10px;
+            display: flex;
+            background-color: blueviolet;
+            margin: 30px;
+}
+        
+    </style>
 </head>
 <body>
+
+
+    <div id="el">
+        <p><span><i>S</i></span> Remove elements with their child elements</p>
+        <p><span><i>S</i></span> Remove elements with their child elements</p>
+        <p class="filter">filter text</p>
+    </div>
+    <button id="remove">remove</button>
+    <button id="empty">empty</button>
+    <button id="filter">filter</button>
+
+
+
     
 
     <script>
         $(document).ready(function(){
+        
+        //simply Remove elements
+            $("#remove").click(function(){
+                $("#el").remove()
+            })
+    
+
+        // simply empaty div or element
+
+        $("#empty").click(function(){
+            $("#el").empty()
+        })
 
 
 
 
-            
+        <!-- filter the  element to be removed -->
+        // the j query remove() method also accept one parameeter wich allow you to filter elements to be removed..
+        // parameter can be any j-query selecter  like id and class..
+
+
+        // in this example remove elements that contain filter classs
+        $("#filter").click(function(){
+            $("p").remove(".filter")
+        })
+
+
+ 
+
+
         })
     </script>
 </body>
 </html>
+
+<!-- Remove elements -->
+
+<!-- with j query it is easy to remove existing elements -->
+
+<!-- we can remove elements and content using remove() and empaty() methods -->
+
+<!-- 
+
+
+    we have 2 methods to remove existing elements..
+
+    1.remove() 
+        used to remove selected elemets with their child elements..
+    2.empty()
+        used to remove child elements from slected elements...
+
+
+
+
+ -->
