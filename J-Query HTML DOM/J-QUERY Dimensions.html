@@ -5,16 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
     <title>j-query Dimensions</title>
+    <style>
+        .box{
+            background-color: aqua;
+            padding: 100px;
+            margin: 100px;
+            border: 10px solid lightskyblue;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+
+        <button id="width">Width</button>
+        <button id="height">Height</button>
+        <button id="innerWidth">innerWidth</button>
+        <button id="innerHeight">InnerHeight</button>
+        <button id="outerHeight">outerHeight</button>
+        <button id="outerWidth">outerWidth</button>
+        <button id="outerHeighttrue">outerHeight (true)</button>
+        <button id="outerWidthtrue">outerWidth (true)</button>
+
+
+
+        <button id="marginRemove">Margin Remove</button>
+        <button id="paddingRemove">Padding Remove</button>
+        
+        <div class="box">This is a simple text!</div>
+    </div>
+
     
 
 <script>
 $(document).ready(function(){
+
+    // Set width for container 
+    let container = $(".container");
+    container.width(1200);
+    container.css({"margin":"0 auto"})
+
+
+// Height() and width()
+
+    $("#width").click(function(){
+        let str =  $(".box").width();
+        $(".box").text((str+"px" + " that exclude(without) margin padding and border that show only element current width.."));
+    });
+         
+
+    $("#height").click(()=>{
+        let storeHeight = $(".box").height();
+        $(".box").text(storeHeight+"px" + " it is showing only elements current height without include border , margin and padding. ")
+    });
     
 
+// innerWidth() and innerHeight();
+
+    $("#innerWidth").click(()=>{
+        let storeWidth = $(".box").innerWidth();
+        $(".box").text(storeWidth + "px" +" it's showing innerwidth that include only elements width and padding and exclude margin and border..")
+    })
+    $("#innerHeight").click(()=>{
+        let StoreHeight = $(".box").innerHeight();
+        $(".box").text(StoreHeight+ "px "+ "it's showing element height including padding but not including border and margin.")
+    })
 
 
+// outerHeight() and outerWidth()  ==> if you pass true argument then it include margin also ,, wotherwise work like same to same innerwidth and innerheight
+
+    $("#outerHeight").click(()=>{
+        let outerHeight = $(".box").outerHeight();
+        $(".box").text(outerHeight+"px" + " it's showing outer height of elements inluding padding and border ,without pass true argument, if you pass true the include margin also")
+    })
+
+    $("#outerWidth").click(()=>{
+        let storeOuterWidth = $(".box").outerWidth();
+        $(".box").text(storeOuterWidth + "px "+ "it's showing width of element including padding and border , and if you pass true argument then include margin also")
+    });
+
+// outerWidth(true) and outerHeight(true)  ==> include everything like margin , padding , border , element all..
+
+
+    $("#outerHeighttrue").click(()=>{
+        let outerHeight = $(".box").outerHeight(true);
+        $(".box").text(outerHeight+"px" + "it's showing everything including elemnt height , padding margin border")
+    })
+
+    $("#outerWidthtrue").click(()=>{
+        let storeOuterWidth = $(".box").outerWidth(true);
+        $(".box").text(storeOuterWidth + "px "+ "it's showing everything including elemnt width , padding margin border")
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+    // add/remove padding or margin
+    $("#marginRemove").click(()=>{
+        $(".box").css({"margin":"0px"})
+        
+    })
+    $("#paddingRemove").click(()=>{
+        $(".box").css({"padding":"0px"})
+    })
+
+    $("button").css({"padding":"10px 20px","margin":"10px"})
     
 })
 </script>
