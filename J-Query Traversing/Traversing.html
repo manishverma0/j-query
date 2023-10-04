@@ -5,8 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
     <title>Traversing</title>
+    <style>
+        div{
+            border: 1px solid black;
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
+
+    <div>
+        <div id="until">
+            <div>
+                <div><span>Main Content</span></div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -14,9 +28,7 @@
 <script>
 $(document).ready(()=>{
 
-alert("J-Query Traversing")
-
-
+$("span").parent().css( {"background-color":"red"})
 
 
 })
