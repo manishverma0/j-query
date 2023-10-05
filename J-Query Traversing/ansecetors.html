@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+    <title>ancestors</title>
+    <style>
+        div,section{
+            margin: 10px;
+            padding: 10px;
+            border: 2px solid black;
+            text-align: center;
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- parent() ==> find parent element from selected element relationship -->
+
+    <div>
+        <section>
+            <div>
+                <section id="stopUntil">
+                    <div>
+                        <section>
+                            <div>
+                                <section id="startUntil">
+                                    <span style="background-color: cadetblue;">Main Selected Element</span>
+                                </section>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+
+     
+    <button id="checkParent">Check Parent</button>
+    <button id="checkParents">Check Parents</button>
+    <button id="checkParentsUntil">Check parentsUntil</button>
+
+
+<script>
+$(document).ready(()=>{
+    // parent()
+    $("#checkParent").click(()=>{
+        $("span").parent().css({"background-color":"pink"})
+    });
+
+    // parents()
+
+    $("#checkParents").click(()=>{
+        $("span").parents("div").css({"background-color":"blue"})
+    });
+
+    // parentsUntil()
+
+
+    $("#checkParentsUntil").click(()=>{
+
+        $("#startUntil").parentsUntil("#stopUntil").css({"background-color":"green"})
+
+    })
+
+
+
+})
+</script>
+</body>
+</html>
+
+<!-- Traversing Up  -->
+<!-- Traversing Up Means find the ancestors or parents of the elements -->
+<!-- we have three methods for traversing up DOM tree -->
+<!-- 
+    1.parent() ==> return only 1 parent of selected element
+    2.parents()  ==> return all parent and ancestors of selected element  you  can pass parameter for wich type ancestors you need,
+    3.parentsUntil()  ==> return all ancestors elements beetween two arguments..
+ -->
