@@ -4,14 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+    <style>
+        section,div{
+            padding: 10px;
+            margin: 10px;
+            border:  1px solid black;
+        }
+    </style>
     <title>DescenDant</title>
 </head>
 <body>
+
+    <div>
+        <section>
+            <div>
+                <section>
+                    <div>
+                        <section>
+                            <div>
+                                <ul>
+                                    <li><span>First List</span></li>
+                                    <li><span>second List</span></li>
+                                    <li><span>thired List</span></li>
+                            
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </div>
+
+
+    <button id="childern">Childern</button>
+    <button id="find">find</button>
     
 
 <script>
 $(document).ready(()=>{
 
+    $("#childern").click(()=>{
+
+        $("ul").children().css({"background-color":"pink"})
+
+
+
+    })
 
 
     
