@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" ></script>
+    <title>Siblings</title>
+    <style>
+        div{
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid black;
+        }
+
+        ul,li,p{
+            border: 1px solid red;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="parent_main">
+        <span>Main parent</span>
+        <div>
+            <span>First child</span>
+            <div>
+                <span>seconed Child</span>
+                <ul>
+                    <li>siblings 1</li>
+                    <li>siblings 2</li>
+                    <li>siblings 3</li>
+                    <li id="sib">siblings 4 (seleted)</li>
+                    <li>siblings 5</li>
+                    <li>siblings 6</li>
+                    <li id="stopUntil">siblings 7 (stopUntil)</li>
+                    <p>siblings 8</p>
+                    <li>siblings 9</li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <button id="allSiblings" title="check all siblings of 4 li">All siblings</button>
+    <button id="findSpecificSibling" title="find Specific elements with siblings(seletor)">Find Speifi elements 8number</button>
+    <button id="next" title="find next sibling elements of selected sibling elements ">next()</button>
+    <button id="nextAll" title="return all next siblings of the selected  elements">nextAll</button>
+    <button id="nextUntil">nextUntil</button>
+
+
+<script>
+$(document).ready(()=>{
+
+
+//siblings()  
+    // find all siblings of 4number  li elements
+    // this return all siblings without perameter
+    $("#allSiblings").click(()=>{
+        $("#sib").siblings().css({"background":"pink"})
+    })
+
+    // You can Target Specific siblings
+    $("#findSpecificSibling").click(()=>{
+        $("#sib").siblings("p").css({"background-color":"gray"})
+    })
+//END siblings()
+
+// next()
+$("#next").click(()=>{
+    $("#sib").next().css({"background-color":"yellow"})
+})
+// END next()
+
+// nextAll()
+$("#nextAll").click(()=>{
+    $("#sib").nextAll().css({"background-color":"blue"})
+})
+
+
+// END nextAll()
+
+
+// nextUntil()
+$("#nextUntil").click(()=>{
+    $("#sib").nextUntil("#stopUntil").css({"background-color":"green"})
+})
+// END nextUntil()
+
+
+
+
+
+})
+</script>
+</body>
+</html>
+
+
+<!-- Siblings -->
+
+<!-- We hae sevral methods for traersing sideways of the selected elements -->
+
+<!-- 
+    1.siblings() ==> used to find all siblings and speific siblings of seleted elements.
+    2.next()
+    3.nextAll()
+    4.nextUntil()
+    5.prev()
+    6.prevAll()
+    7.prevUntil()
+ -->
