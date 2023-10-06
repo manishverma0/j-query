@@ -9,12 +9,22 @@
             padding: 10px;
             margin: 10px;
             border:  1px solid black;
-        }
+            background-color: white;
+            }
+        button {
+            padding: 10px;
+            font-size: 20px;
+            border: 0;
+            border-radius: 10px;
+            color: white;
+            background: chocolate;
+            margin: 10px;
+            }
     </style>
     <title>DescenDant</title>
 </head>
 <body>
-
+<div class="childern">
     <div>
         <section>
             <div>
@@ -23,9 +33,10 @@
                         <section>
                             <div>
                                 <ul>
-                                    <li><span>First List</span></li>
+                                    <li><span class="mnu">First List</span></li>
                                     <li><span>second List</span></li>
-                                    <li><span>thired List</span></li>
+                                    <li><span class="mnu">three List</span></li>
+                                    <li><span>four List</span></li>
                             
                                 </ul>
                             </div>
@@ -35,23 +46,46 @@
             </div>
         </section>
     </div>
+</div>
 
 
-    <button id="childern">Childern</button>
+    <button id="childern">Check Only one childern</button>
+    <button id="childernFilter">all childern No Filter childern() if have multiple Child</button>
+    <button id="childernFirstFilter">Childern first Filter</button>
+    <button id="childernLastFilter">Childern  last Filter</button>
+    <button id="mnu">modifiy some specific  childs that contain mnu class</button>
     <button id="find">find</button>
     
 
 <script>
 $(document).ready(()=>{
-
+    // Find direct childern childern .. jiska parent #childern he .. only one level down krega
+    // select only one child if have only one child.. mtlab child ke andar child ko select nhii krta.. 
     $("#childern").click(()=>{
-
-        $("ul").children().css({"background-color":"pink"})
-
-
-
+        $(".childern").children().css({"background-color":"pink"})
     })
 
+    // agar childen sare match ho jaate he to unhe match kr deta he.. 
+
+    // select all child if have multiple child
+    $("#childernFilter").click(()=>{
+        $("ul").children("li").css({"background-color":"green"})
+    });
+    // Filter First Child
+    $("#childernFirstFilter").click(()=>{
+        $("ul").children("li").first().css({"background-color":"gray"})
+    })
+    // Filter Last Child
+    $("#childernLastFilter").click(()=>{
+        $("ul").children("li").last().css({"background-color":"red"})
+    })
+    // filter by class 
+    $("#mnu").click(()=>{
+        $("li").children(".mnu").css({"background-color":"black"})
+    })
+
+
+    // find
 
     
 })
@@ -60,4 +94,27 @@ $(document).ready(()=>{
 </html>
 
 <!-- Desendant -->
+<!-- jab hume kisi element ke child elements ko find krna ho ya target krna ho tab hum traverse down ke liye ya decendent 
+    ko dhundne ke liye 2 methods ka use krte he 
+
+    1.childern()
+    2.find()
+
+
+
+
+    1.childern  ==>  this method return all direct childeren of the selected elements.
+                    this method only traverse a single level down the dom tree..
+                    selected element ke direct bad wala childern ko select krta he ,sirf ek level tak
+
+                    > SELECT ALL CHILDERNS IF HAVE SAME TYPE
+                    > SELECT CHILD ONLY ONE 
+                    > SELECT ALL CHILDERNS THAT CONTAIN SPECIFIC CLASS 
+                    > SELECT FIRST CHILD
+                    > SELECT LAST CHILD
+                    > 
+
+    2.find  ==>
+
+-->
 
