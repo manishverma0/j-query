@@ -33,7 +33,10 @@
                         <section>
                             <div>
                                 <ul>
-                                    <li><span class="mnu">First List</span></li>
+                                    <li><span class="mnu">
+                                        First List<p id="decendent">decsendant</p>
+                                        </span>
+                                    </li>
                                     <li><span>second List</span></li>
                                     <li><span class="mnu">three List</span></li>
                                     <li><span>four List</span></li>
@@ -54,7 +57,11 @@
     <button id="childernFirstFilter">Childern first Filter</button>
     <button id="childernLastFilter">Childern  last Filter</button>
     <button id="mnu">modifiy some specific  childs that contain mnu class</button>
-    <button id="find">find</button>
+    <br>
+
+
+    <button id="find">find specific Decendant By Id</button>
+    <button id="findAll">find all DescenDant</button>
     
 
 <script>
@@ -86,9 +93,23 @@ $(document).ready(()=>{
 
 
     // find
+    // this method return onlly decsendant elements not child ... we can traverse down infinity for only decsendant
+
+    // find decsendant of ul .. issexample me hum ul ke decendent dhundenge li uska child hota he li ke andar ka content use decendent kahenge
+   
+    // find specific decendant
+    $("#find").click(()=>{
+        $("ul").find("#decendent").css({"background-color":"red"})
+    })
+
+    // find all decsendant but yeh child ko bhi le leta he ..
+
+    $("#findAll").click(()=>{
+        $("ul").find("*").css({"background-color":"purple"})
+    })
 
     
-})
+})  
 </script>
 </body>
 </html>
@@ -114,7 +135,11 @@ $(document).ready(()=>{
                     > SELECT LAST CHILD
                     > 
 
-    2.find  ==>
+    2.find  ==> yeh sirf selected element ke decendant return krta he..  child nhi 
+
+                decendant eelement get krne ke 2 tarke he 
+                1. select specific decendent by class or id
+                2. select all decendant by * and modify all
 
 -->
 
