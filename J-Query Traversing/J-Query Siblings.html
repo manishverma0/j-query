@@ -17,6 +17,14 @@
             margin: 10px;
             padding: 10px;
         }
+        button{
+            padding: 10px;
+            margin: 10px;
+        }
+        .Wrapper{
+            display: flex;
+            background-color: brown;
+        }
     </style>
 </head>
 <body>
@@ -27,28 +35,51 @@
             <div>
                 <span>seconed Child</span>
                 <ul>
-                    <li>siblings 1</li>
+                    <li>siblings 0</li>
+                    <li id="stopPrev">siblings 1</li>
                     <li>siblings 2</li>
                     <li>siblings 3</li>
                     <li id="sib">siblings 4 (seleted)</li>
-                    <li>siblings 5</li>
+                    <li class="spcial">siblings 5</li>
                     <li>siblings 6</li>
                     <li id="stopUntil">siblings 7 (stopUntil)</li>
                     <p>siblings 8</p>
                     <li>siblings 9</li>
+                    <li class="spcial">spacial filter</li>
 
                 </ul>
             </div>
         </div>
     </div>
 
+  
 
+<div class="Wrapper">
+    <div class="nextMethods">
+        <button id="allSiblings" title="check all siblings of 4 li">All siblings</button>
+        <button id="findSpecificSibling" title="find Specific p elements with siblings(seletor)">Find Speifi elements 8number</button>
+        <button id="next" title="find next sibling elements of selected sibling elements ">next()</button>
+        <button id="nextAll" title="return all next siblings of the selected  elements">nextAll</button>
+        <button id="nextUntil">nextUntil</button>
+    </div>
 
-    <button id="allSiblings" title="check all siblings of 4 li">All siblings</button>
-    <button id="findSpecificSibling" title="find Specific elements with siblings(seletor)">Find Speifi elements 8number</button>
-    <button id="next" title="find next sibling elements of selected sibling elements ">next()</button>
-    <button id="nextAll" title="return all next siblings of the selected  elements">nextAll</button>
-    <button id="nextUntil">nextUntil</button>
+    <div class="prevMethods">
+        <button id="prev" title="same next() method ki trha yeh previous element ko target krta he">prev</button>
+        <button id="prevAll">prevAll</button>
+        <button id="prevUntil">prevUntil</button>
+    </div>
+
+    <div class="filtering_Methods">
+        <button id="first">first()</button>
+        <button id="last">last()</button>
+        <button id="SimpleEQ">Simple Eq</button>
+        <button id="eq">random eq()</button>
+        <button id="filter">filter()</button>
+        <button id="not">not()</button>
+        <button id="is" title="used to check class for decision making, if have then return true other false">is()</button>
+    </div>
+
+</div>
 
 
 <script>
@@ -81,22 +112,120 @@ $("#nextAll").click(()=>{
 
 
 // END nextAll()
-
-
 // nextUntil()
 $("#nextUntil").click(()=>{
     $("#sib").nextUntil("#stopUntil").css({"background-color":"green"})
 })
 // END nextUntil()
-
-
-
-
-
 })
+
+// mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+ 
+// prev Methods
+
+// PREV() ==> Selected element ke just pehle wala ek element ko target krne ke liye use kia jata he..
+// target first previuse element of the selected element..same as next()
+$("#prev").click(()=>{
+    $("#sib").prev().css({"background-color":"brown"})
+});
+
+// prevAll() ==>return all previous elements of the selected elements.. same as nextAll() 
+$("#prevAll").click(()=>{
+    $("#sib").prevAll().css({"background-color":"pink"})
+})
+
+
+//prevUntil() ==> return all previous elements between given two arguments,, mtlab selected elemt se kaha tak ke previous elements ko target krna he
+$("#prevUntil").click(()=>{
+    $("#sib").prevUntil("#stopPrev").css({"background-color":"aqua"})
+})
+
+// mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+
+
+// J-Query Traversing Filters
+
+
+
+// first() ==> the first method return the first element of the specified elements or set of matched elements ...
+// 
+
+$("#first").click(()=>{
+    $("li").first().css({"background-color":"blue"})
+});
+
+
+
+
+// last() ==> the last method return the last element of the specified elements...
+$("#last").click(()=>{
+    $("li").last().css({"background-color":"blue"})
+});
+
+// eq() ==> the eq() method return an element with a specific index number of the selected element..
+// eq method index numbers leta he uske hisab se element ko target krta he..
+// the index number start with 0 , so the first element will have the index number 0 ,,not 1..
+
+// iss method se hum specified eelements ke group me kisi bhi element ko uske number se target kr skte he ..
+
+$("#SimpleEQ").click(()=>{
+    $("li").eq(3).css({"background-color":"purple"})
+})
+
+// randome eq
+let rands = Math.floor((Math.random() * 10) + 1);
+$("#eq").click(()=>{
+    $("li").eq(rands).css({"background-color":"yellow"})
+})
+
+
+
+
+// Filter() and not()
+// jab group of elements me se kisi special elements ko pic krna ho tab iska use krte he.. 
+// isme conditions use hoti he  jaise ki picking only the elements that have a certain class or match a particluar rule,
+
+// like you have a bunch of <p> and you want to target the ones with  have class "spacial" then you would use 
+
+//     $("p").filter(".spacial"), yeh apko vahi paragraph return krega jisme special class hogii..
+
+
+
+
+$("#filter").click(()=>{
+    $("li").filter(".spcial").css({"background-color":"red"})
+})
+
+
+// Not()  ==>  return everything but not this one ...
+
+$("#not").click(()=>{
+    $("li").not(".spcial").css({"background-color":"#00FFFF"})
+});
+
+// is()  ==> always use in if else conditions..mostly yeh check krne ke liye kia jata he ki yeh class agar iss elements me avaialale 
+// he to kya action perform karwana he or nhi he to kya action perform karwana he ..
+
+
+
+if($("li").is(".spcial")){
+    $("#is").click(()=>{
+         alert("yes This class is available in your List")
+    })
+}else{
+    alert("this class is not available in your List")
+}
+
+
+
+
+
+
+
+
 </script>
 </body>
-</html>
+</html>                                                            
 
 
 <!-- Siblings -->
@@ -111,4 +240,18 @@ $("#nextUntil").click(()=>{
     5.prev()
     6.prevAll()
     7.prevUntil()
- -->
+
+    filtering elements
+
+    <!-- element ki position per target krta he  -->
+    <!-- 1.first()
+    2.last()
+    3.eq() -->
+
+    <!-- match or not match agar match hua to uspe kiye hue event fire hoonge nhi to nhi honge -->
+    <!-- 4.filter()
+    5.not()
+    6.is() 
+
+-->
+ 
