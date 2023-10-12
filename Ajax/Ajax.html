@@ -8,9 +8,31 @@
 </head>
 <body>
 
+    <button>run</button>
     
 <script>
 $(document).ready(()=>{
+
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET" , "https://jsonplaceholder.typicode.com/todos/1" , true);
+    xhr.send();
+
+console.log(xhr.responseText)
+
+
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+.then(Response => Response.json())
+.then(data =>  {
+    console.log(data)
+})
+.catch(error =>{
+    console.log("have you misken")
+})
+     
+    
+
+  
 
  
  
