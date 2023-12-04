@@ -10,17 +10,39 @@
             justify-content: center;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
     <div class="head">
-        <h1>JavaScript String</h1>
+        <h1 id="target">JavaScript String</h1>
     </div>
+
+
+
+    <button id="length">String Length</button>
 
 
 
 
 <script>
+$(document).ready(()=>{
 
+ 
+//Basics String Operations
+let basicStr = 'Hello This is A "Manish Verma"';
+console.log(basicStr);
+
+
+//Check String Length  
+
+$("#length").click(()=>{
+    let length =   basicStr.length;
+    console.log(`This is a String ${length}`)
+})
+
+
+
+});
 </script>   
 </body>
 </html>

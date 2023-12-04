@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div id="old_data">This Text are Are Ready To vanish..</div>
+        <button id="vanish">Vanish</button>
+    </div>
+    
+
+
+    <script type="text/javascript">
+
+const vanish =  document.getElementById('vanish');
+    vanish.addEventListener('click',function(){
+        let Xhr = new XMLHttpRequest();
+        Xhr.open("GET","https://dummyjson.com/products/",true);
+     
+        Xhr.send();
+        Xhr.onload  = function() {
+            if ( Xhr.readyState === 4 && Xhr.status === 200 ) {
+                var responseData =  JSON.parse(Xhr.responseText) ;
+
+  
+                // show data object on screen in html div
+                document.querySelector('#old_data').innerHTML = responseData;
+
+                // Console Data 
+                console.log(responseData)
+
+                
+            } else {
+                alert("Sorry we Can't Able To process data");
+            }
+        };
+        });
+    
+
+
+
+
+    </script>
+</body>
+</html>

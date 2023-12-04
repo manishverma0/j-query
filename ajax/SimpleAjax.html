@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div id="old_data">This Text are Are Ready To vanish..</div>
+        <button id="vanish">Vanish</button>
+    </div>
+    
+
+
+    <script type="text/javascript">
+var loadDataButton = document.getElementById('vanish');
+var responseContainer = document.getElementById('old_data');
+        
+     
+loadDataButton.addEventListener('click',function(){
+            var XHR = new XMLHttpRequest();
+            XHR.open("GET","https://reqres.in/api/products/",true);
+            
+    XHR.onload = function() {
+        if (XHR.status === 200 && XHR.readyState == 4) {
+            var responseData = JSON.parse(XHR.responseText);
+            responseContainer.innerHTML = 'Data: ' + responseData.data;
+            console.log(responseData.data)
+        } else {
+            responseContainer.innerHTML = 'Error: ' + XHR.statusText;
+        }
+    };
+
+    // Send the request
+    XHR.send();
+          
+
+        })
+
+
+
+
+    </script>
+</body>
+</html>

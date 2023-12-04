@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: aqua;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+    }
+    .container {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    }
+</style>
+<body>
+    <div class="container">
+        <div id="Header_INFO">Header Informations</div>
+        <div id="response_data">Response Data</div>
+    </div>
+
+
+    <script>
+        let xhr = new XMLHttpRequest();
+
+        xhr.open('GET','load.html',true);
+        xhr.send();
+
+        let Header_info = document.querySelector('#Header_INFO');
+        let respons_data = document.querySelector('#response_data');
+
+        xhr.onreadystatechange = function(){
+ 
+            if(xhr.readyState == 4 && xhr.status == 200){
+
+                // Show Header Data 
+                // const  responseHeaders = xhr.getAllResponseHeaders();
+                // const  responseHeaders = xhr.getResponseHeader('Last-modified');
+                // const  responseHeaders = xhr.getResponseHeader('Content-type');
+                const  responseHeaders = xhr.getResponseHeader('server');
+                Header_info.innerHTML = responseHeaders; 
+
+                // Show Response Data
+                const  responseData = xhr.responseText;
+                respons_data.innerHTML = responseData;
+               
+                
+            }
+        }
+
+   
+
+
+
+
+    </script>
+</body>
+</html>

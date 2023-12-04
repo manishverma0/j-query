@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+ 
+ 
+</head>
+<body>
+
+    <div class="container">
+        <div id="load_data">
+            automatic Remove this Text When  ajax server data laod
+        </div>
+        <button id="btn" class="btn-success">show</button>
+        
+    </div>
+
+
+    
+
+<script type="text/JavaScript">
+$(document).ready(function(){
+
+    $('#btn').click(function(){
+         setTimeout(()=>{
+           $('#load_data').load("load.html",function(){
+
+            $("#btn").animate({left: '250px'});
+
+            setTimeout(() => {
+                 console.log("All Data Loaded....")
+                
+            }, 500);
+
+           });
+        },500)
+   
+    })
+})
+     
+    </script>
+</body>
+</html>
